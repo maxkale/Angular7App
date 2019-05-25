@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="breadcrumb-holder">
+      <h1 class="main-title float-left"> <i class="fa fa-user"></i> User</h1>
+      <ol class="breadcrumb float-right">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item active">User</li>
+      </ol>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<app-widget [widgetData]='widgetData'></app-widget>
+<div class="card card-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-primary" (click)='sbtBtn=false' data-toggle="modal" data-target="#UserModal">
+        <i class="fa fa-plus"></i> Add User
+      </button>
+    </div>
+    <div class="col-sm-12 mt-3">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th width='5%'>Sr</th>
+            <th width='25%'>Name</th>
+            <th width='15%'>Mobile</th>
+            <th width='20%'>Email</th>
+            <th width='10%'>Role</th>
+            <th width='10%'>Status</th>
+            <th width='15%'>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mahesh Kale</td>
+            <td>8928897475</td>
+            <td>Kkalemahesh@gmil.com</td>
+            <td>Admin</td>
+            <td class="text-success">Active</td>
+            <td><button class="btn btn-sm btn-primary pull-left"> Edit</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Amol Gorde</td>
+            <td>8698499699</td>
+            <td>amol1995@gmil.com</td>
+            <td>User</td>
+            <td class="text-danger">Inactive</td>
+            <td><button class="btn btn-sm btn-primary pull-left">Edit</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>{{'Prasad Yede'|plainToHtml}}</td>
+            <td>7040475902</td>
+            <td>pd1995@gmil.com</td>
+            <td>User</td>
+            <td class="text-success">Active</td>
+            <td><button class="btn btn-sm btn-primary pull-left">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-white" id="exampleModalLabel"><i class="fa fa-user"></i> Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="userForm" (ngSubmit)="userForm.valid&&onSubmit()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" maxlength="15" oninput="this.value=this.value.replace(/[^A-z]/,'')"
+                      formControlName='first_name' name="first_name" class="form-control">
+                    <div class="text-danger" *ngIf='sbtBtn'>
+                      <div *ngIf="uForm.first_name.errors?.required">This field is required</div>
+                      <div *ngIf="uForm.first_name.errors?.maxlength">Only 15 Character accepted</div>
+                      <div *ngIf="uForm.first_name.errors?.minlength">At least 4 cha required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Last Name </label>
+                    <input type="text" formControlName='last_name' maxlength="15" class="form-control">
+                    <div class="text-danger" *ngIf='sbtBtn'>
+                      <div *ngIf="uForm.last_name.errors?.required">This field is required</div>
+                      <div *ngIf="uForm.last_name.errors?.maxlength">Only 15 Character accepted</div>
+                      <div *ngIf="uForm.last_name.errors?.minlength">At least 4 cha required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="pull-right btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" (click)='sbtBtn=true' class="pull-left btn btn-primary">Save changes</button> </div>
+      </form>
+    </div>
+  </div>
+</div>

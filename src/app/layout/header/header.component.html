@@ -1,0 +1,42 @@
+<!-- top bar navigation -->
+<div class="headerbar">
+
+    <!-- LOGO -->
+    <div class="headerbar-left">
+        <a href="index.html" class="logo pull-left">
+            <img alt="Logo" src="favicon.ico" />
+        </a>
+    </div>
+    <nav class="navbar-custom">
+        <ul class="list-inline float-right mb-0">
+            <li class="list-inline-item dropdown notif">
+                <span class="text-white"> {{userData.name}}</span>
+            </li>
+            <li class="list-inline-item dropdown notif">
+                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell-o"></i><span class="notif-bullet"></span>
+                </a>
+            </li>
+            <li class="list-inline-item dropdown notif">
+                <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
+                    <img src="{{userData.profile}}" alt="Profile image" class="avatar-rounded">
+                </a>
+            </li>
+
+
+        </ul>
+
+        <!-- <ul class="list-inline menu-left mb-0">
+            <li class="float-left">
+                <button class="button-menu-mobile open-left">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+            </li>
+        </ul> -->
+
+    </nav>
+
+</div>
+<!-- End Navigation -->

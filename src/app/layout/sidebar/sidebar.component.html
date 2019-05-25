@@ -1,0 +1,23 @@
+<!-- Left Sidebar -->
+
+<div class="left main-sidebar">
+  <div class="sidebar-inner leftscroll">
+    <div id="sidebar-menu">
+      <ul>
+        <li class="submenu" *ngFor='let top of Menu;let i =index'>
+          <a [routerLink]="top.route" (click)='SubMenu(i)'><i class="fa {{top.icon}}"></i>
+            <span> {{top.name}} </span>
+            <span *ngIf='top.isSubmenu' class="menu-arrow"></span>
+          </a>
+          <ul class="list-unstyled" *ngIf='top.isSubmenu'>
+            <li *ngFor='let sub of top.subMenu'><a href="ui-alerts.html">{{sub.name}}</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- End Sidebar -->
